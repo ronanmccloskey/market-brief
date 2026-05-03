@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Brief — SUN 03 MAY 2026 · 08:30 ET</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0f14;
+  --surface: #151920;
+  --surface2: #1c2028;
+  --surface3: #222833;
+  --border: #2a2f3a;
+  --text: #e8eaed;
+  --text-dim: #8b9099;
+  --accent: #4fd1c5;
+  --accent2: #63b3ed;
+  --red: #fc5c65;
+  --green: #26de81;
+  --orange: #fd9644;
+  --gold: #f7d794;
+  --purple: #a78bfa;
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.6; }
+.container { max-width:920px; margin:0 auto; padding:24px 20px 80px; }
+
+/* Header */
+.header { display:flex; align-items:center; justify-content:space-between; padding:20px 0 16px; border-bottom:1px solid var(--border); margin-bottom:32px; }
+.header-left { display:flex; align-items:center; gap:14px; }
+.logo-mark { width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:800; font-size:20px; color:var(--bg); }
+.header-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; letter-spacing:-0.5px; }
+.header-date { font-size:13px; color:var(--text-dim); font-family:'JetBrains Mono',monospace; }
+
+/* Sentiment */
+.sentiment-banner { background:linear-gradient(135deg,rgba(79,209,197,0.08),rgba(99,179,237,0.08)); border:1px solid rgba(79,209,197,0.2); border-radius:var(--radius); padding:18px 22px; margin-bottom:32px; display:flex; align-items:flex-start; gap:14px; }
+.sentiment-icon { font-size:24px; line-height:1; margin-top:2px; }
+.sentiment-label { color:var(--accent); font-weight:700; text-transform:uppercase; font-size:11px; letter-spacing:1.5px; margin-bottom:4px; }
+.sentiment-text { font-size:15px; line-height:1.6; }
+
+/* Sections */
+.section { margin-bottom:36px; }
+.section-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.section-num { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:var(--accent); background:rgba(79,209,197,0.1); padding:3px 8px; border-radius:6px; }
+.section-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; }
+.subsection-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--accent2); margin:20px 0 10px; }
+.subsection-label:first-of-type { margin-top:0; }
+
+/* Market Grid */
+.market-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media(max-width:600px){.market-grid{grid-template-columns:1fr;}}
+
+/* Expandable Market Card */
+.market-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; transition:border-color 0.2s; cursor:pointer; }
+.market-card:hover { border-color:var(--accent); }
+.card-top { display:flex; justify-content:space-between; align-items:center; }
+.card-label { font-size:11px; text-transform:uppercase; letter-spacing:1.2px; color:var(--text-dim); margin-bottom:4px; font-weight:500; }
+.card-row { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px; }
+.price { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500; }
+.change { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; }
+.change.up { color:var(--green); }
+.change.down { color:var(--red); }
+.card-note { font-size:12px; color:var(--text-dim); margin-top:6px; line-height:1.4; }
+.card-expand-icon { font-size:14px; color:var(--text-dim); transition:transform 0.2s; }
+.market-card.open .card-expand-icon { transform:rotate(180deg); }
+
+/* Extended data panel inside market card */
+.card-extended { max-height:0; overflow:hidden; transition:max-height 0.35s ease, margin 0.35s ease, padding 0.35s ease; }
+.market-card.open .card-extended { max-height:300px; margin-top:14px; padding-top:12px; border-top:1px solid var(--border); }
+.perf-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; }
+.perf-item { text-align:center; }
+.perf-period { font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--text-dim); margin-bottom:2px; }
+.perf-val { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; }
+
+/* Mini sparkline bar */
+.spark-row { display:flex; gap:2px; align-items:flex-end; height:24px; margin-top:10px; }
+.spark-bar { flex:1; border-radius:2px 2px 0 0; min-height:2px; }
+.spark-bar.g { background:var(--green); }
+.spark-bar.r { background:var(--red); }
+
+/* Chart */
+.chart-container { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; margin:16px 0; }
+.chart-title { font-size:13px; font-weight:700; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+.bar-chart { display:flex; align-items:flex-end; gap:8px; height:140px; padding-top:10px; }
+.bar-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; height:100%; justify-content:flex-end; }
+.bar { width:100%; border-radius:4px 4px 0 0; min-height:2px; }
+.bar.positive { background:var(--green); }
+.bar.negative { background:var(--red); }
+.bar-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim); text-align:center; }
+.bar-value { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; }
+.bar-value.positive { color:var(--green); }
+.bar-value.negative { color:var(--red); }
+
+/* Expandable Cards (headlines, news) */
+.expand-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; cursor:pointer; transition:all 0.25s ease; }
+.expand-card:hover { border-color:var(--accent); transform:translateY(-1px); }
+.expand-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.expand-title { font-size:16px; font-weight:700; line-height:1.4; flex:1; }
+.expand-arrow { color:var(--text-dim); font-size:18px; transition:transform 0.2s; flex-shrink:0; margin-top:2px; }
+.expand-card.open .expand-arrow { transform:rotate(90deg); }
+.expand-body { max-height:0; overflow:hidden; transition:max-height 0.4s ease, margin 0.4s ease; font-size:14px; color:var(--text-dim); line-height:1.7; }
+.expand-card.open .expand-body { max-height:800px; margin-top:14px; }
+.expand-body p { margin-bottom:10px; }
+.expand-body p:last-child { margin-bottom:0; }
+
+/* Tags */
+.tags { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.tag { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; padding:3px 8px; border-radius:4px; }
+.tag-equities { background:rgba(79,209,197,0.15); color:var(--accent); }
+.tag-commodities { background:rgba(253,150,68,0.15); color:var(--orange); }
+.tag-bonds { background:rgba(167,139,250,0.15); color:var(--purple); }
+.tag-fx { background:rgba(99,179,237,0.15); color:var(--accent2); }
+.tag-macro { background:rgba(247,215,148,0.15); color:var(--gold); }
+.tag-crypto { background:rgba(252,92,101,0.15); color:var(--red); }
+
+/* Sector badges */
+.sector-badge { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:6px; display:inline-block; padding:3px 10px; border-radius:4px; }
+.sb-ai { background:rgba(79,209,197,0.15); color:var(--accent); }
+.sb-politics { background:rgba(252,92,101,0.15); color:var(--red); }
+.sb-innovation { background:rgba(167,139,250,0.15); color:var(--purple); }
+.sb-energy { background:rgba(253,150,68,0.15); color:var(--orange); }
+.sb-pharma { background:rgba(38,222,129,0.15); color:var(--green); }
+.sb-finance { background:rgba(99,179,237,0.15); color:var(--accent2); }
+
+/* Consequence callout */
+.consequence { background:var(--surface2); border-left:3px solid var(--orange); padding:10px 14px; border-radius:0 8px 8px 0; margin-top:10px; font-size:13px; color:var(--text); line-height:1.6; }
+.consequence-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--orange); margin-bottom:4px; }
+
+/* Company ticker pill */
+.ticker-pill { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; background:var(--surface3); border:1px solid var(--border); padding:2px 8px; border-radius:4px; margin-right:4px; color:var(--accent); }
+
+/* Calendar */
+.cal-item { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; margin-bottom:10px; display:grid; grid-template-columns:80px 1fr auto; gap:14px; align-items:center; }
+.cal-time { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent); font-weight:500; }
+.cal-event-name { font-size:14px; font-weight:700; }
+.cal-event-detail { font-size:12px; color:var(--text-dim); margin-top:2px; }
+.cal-data { text-align:right; }
+.cal-consensus { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; }
+.cal-previous { font-size:11px; color:var(--text-dim); }
+
+/* Week Ahead */
+.week-day-header { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:var(--accent2); background:var(--surface2); padding:6px 14px; border-radius:6px; margin:16px 0 10px; display:inline-block; }
+
+/* Watch */
+.watch-card { background:linear-gradient(135deg,rgba(253,150,68,0.06),rgba(252,92,101,0.06)); border:1px solid rgba(253,150,68,0.2); border-radius:var(--radius); padding:22px 24px; }
+.watch-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; margin-bottom:10px; }
+.watch-text { font-size:14px; color:var(--text-dim); line-height:1.7; }
+
+/* Questions */
+.question-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 18px; margin-bottom:10px; display:flex; align-items:center; gap:12px; cursor:pointer; transition:all 0.25s ease; }
+.question-card:hover { border-color:var(--accent); background:var(--surface2); }
+.q-num { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:var(--accent); background:rgba(79,209,197,0.1); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.q-text { font-size:14px; font-weight:500; }
+
+/* Sources */
+.source-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; padding-top:16px; border-top:1px solid var(--border); }
+.source-badge { font-size:10px; font-weight:500; color:var(--text-dim); background:var(--surface2); border:1px solid var(--border); padding:4px 10px; border-radius:20px; display:flex; align-items:center; gap:6px; text-decoration:none; transition:border-color 0.2s, color 0.2s; }
+a.source-badge:hover { border-color:var(--accent); color:var(--text); }
+.source-dot { width:6px; height:6px; border-radius:50%; }
+
+/* Per-card source attribution */
+.card-source { font-size:11px; color:var(--text-dim); margin-top:12px; padding-top:10px; border-top:1px dashed var(--border); }
+.card-source a { color:var(--accent2); text-decoration:none; }
+.card-source a:hover { text-decoration:underline; }
+
+.footer { text-align:center; padding:32px 0 16px; font-size:12px; color:var(--text-dim); border-top:1px solid var(--border); margin-top:24px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.section { animation:fadeUp 0.5s ease both; }
+.section:nth-child(2){animation-delay:0.05s}.section:nth-child(3){animation-delay:0.1s}.section:nth-child(4){animation-delay:0.15s}.section:nth-child(5){animation-delay:0.2s}.section:nth-child(6){animation-delay:0.25s}.section:nth-child(7){animation-delay:0.3s}.section:nth-child(8){animation-delay:0.35s}.section:nth-child(9){animation-delay:0.4s}.section:nth-child(10){animation-delay:0.45s}
+</style>
+</head>
+<body>
+<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo-mark">M</div>
+    <div>
+      <div class="header-title">Daily Market Brief</div>
+      <div class="header-date">SUN 03 MAY 2026 · 08:30 ET</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="sentiment-banner">
+    <div class="sentiment-icon">📈</div>
+    <div>
+      <div class="sentiment-label">Market Sentiment</div>
+      <div class="sentiment-text">Markets ended the week on a bullish note as the S&P 500 and Nasdaq both closed at all-time highs Friday, capping their best month since 2020. Apple's blowout earnings powered tech while oil prices retreated on renewed Iran peace hopes, though Trump's EU auto tariff escalation and the unresolved War Powers standoff inject fresh uncertainty into the week ahead. Key data releases — ISM Services, JOLTS, and Friday's April nonfarm payrolls — will test whether the rally can sustain itself.</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">Key Market Moves</span>
+  </div>
+
+  <div class="subsection-label">Equity Indices</div>
+
+  <div class="chart-container">
+    <div class="chart-title">Index Performance — % Change (May 3)</div>
+    <div class="bar-chart">
+      
+      <div class="bar-col">
+        <div class="bar-value positive">+0.29%</div>
+        <div class="bar positive" style="height:32%"></div>
+        <div class="bar-label">SPX</div>
+      </div>
+      
+      <div class="bar-col">
+        <div class="bar-value positive">+0.89%</div>
+        <div class="bar positive" style="height:99%"></div>
+        <div class="bar-label">NDX</div>
+      </div>
+      
+      <div class="bar-col">
+        <div class="bar-value negative">-0.31%</div>
+        <div class="bar negative" style="height:34%"></div>
+        <div class="bar-label">DJI</div>
+      </div>
+      
+      <div class="bar-col">
+        <div class="bar-value negative">-0.14%</div>
+        <div class="bar negative" style="height:16%"></div>
+        <div class="bar-label">FTSE</div>
+      </div>
+      
+      <div class="bar-col">
+        <div class="bar-value positive">+0.00%</div>
+        <div class="bar positive" style="height:4%"></div>
+        <div class="bar-label">SX5E</div>
+      </div>
+      
+      <div class="bar-col">
+        <div class="bar-value positive">+0.38%</div>
+        <div class="bar positive" style="height:43%"></div>
+        <div class="bar-label">N225</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="market-grid">
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">S&P 500</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">7,230.12</span>
+    
+    <span class="change up">+0.29%</span>
+    
+  </div>
+  <div class="card-note">Prev close 7,209.01</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.91%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+9.96%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+4.70%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+29.01%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar g" style="height:36%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar r" style="height:34%"></div><div class="spark-bar r" style="height:59%"></div><div class="spark-bar g" style="height:85%"></div><div class="spark-bar r" style="height:46%"></div><div class="spark-bar g" style="height:70%"></div><div class="spark-bar g" style="height:27%"></div><div class="spark-bar r" style="height:51%"></div><div class="spark-bar r" style="height:22%"></div><div class="spark-bar g" style="height:84%"></div><div class="spark-bar g" style="height:38%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 5,158.20 – 7,230.12</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">NASDAQ</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">25,114.44</span>
+    
+    <span class="change up">+0.89%</span>
+    
+  </div>
+  <div class="card-note">Prev close 24,892.31</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+1.12%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+14.99%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+6.99%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+41.80%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar g" style="height:36%"></div><div class="spark-bar g" style="height:88%"></div><div class="spark-bar r" style="height:32%"></div><div class="spark-bar r" style="height:47%"></div><div class="spark-bar g" style="height:94%"></div><div class="spark-bar r" style="height:61%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar g" style="height:29%"></div><div class="spark-bar r" style="height:62%"></div><div class="spark-bar g" style="height:21%"></div><div class="spark-bar g" style="height:61%"></div><div class="spark-bar g" style="height:61%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 15,870.90 – 25,114.44</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">DOW JONES</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">49,499.27</span>
+    
+    <span class="change down">-0.31%</span>
+    
+  </div>
+  <div class="card-note">Prev close 49,652.14</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.55%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+6.30%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+2.14%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+21.46%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar g" style="height:29%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar r" style="height:20%"></div><div class="spark-bar r" style="height:45%"></div><div class="spark-bar g" style="height:49%"></div><div class="spark-bar r" style="height:35%"></div><div class="spark-bar r" style="height:26%"></div><div class="spark-bar r" style="height:25%"></div><div class="spark-bar r" style="height:22%"></div><div class="spark-bar r" style="height:44%"></div><div class="spark-bar g" style="height:88%"></div><div class="spark-bar r" style="height:33%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 38,170.41 – 50,188.14</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">FTSE 100</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">10,363.90</span>
+    
+    <span class="change down">-0.14%</span>
+    
+  </div>
+  <div class="card-note">Prev close 10,378.80</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-0.15%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--red)">-0.01%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+5.04%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+21.97%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar g" style="height:33%"></div><div class="spark-bar g" style="height:55%"></div><div class="spark-bar r" style="height:46%"></div><div class="spark-bar r" style="height:70%"></div><div class="spark-bar r" style="height:29%"></div><div class="spark-bar r" style="height:28%"></div><div class="spark-bar r" style="height:55%"></div><div class="spark-bar r" style="height:46%"></div><div class="spark-bar g" style="height:25%"></div><div class="spark-bar r" style="height:74%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar r" style="height:26%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 8,403.20 – 10,910.60</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">EURO STOXX 50</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">5,881.51</span>
+    
+    <span class="change" style="color:var(--text-dim)">+0.00%</span>
+    
+  </div>
+  <div class="card-note">Prev close 5,881.51</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-0.03%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+2.60%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+2.26%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+13.98%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar r" style="height:24%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar r" style="height:65%"></div><div class="spark-bar r" style="height:51%"></div><div class="spark-bar r" style="height:34%"></div><div class="spark-bar r" style="height:26%"></div><div class="spark-bar r" style="height:26%"></div><div class="spark-bar r" style="height:33%"></div><div class="spark-bar r" style="height:34%"></div><div class="spark-bar r" style="height:31%"></div><div class="spark-bar g" style="height:59%"></div><div class="spark-bar g" style="height:20%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 4,935.34 – 6,173.32</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">NIKKEI 225</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">59,513.12</span>
+    
+    <span class="change up">+0.38%</span>
+    
+  </div>
+  <div class="card-note">Prev close 59,284.92</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-0.34%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+10.74%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+17.78%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+63.26%</div>
+      </div>
+    </div>
+    
+    <div class="spark-row">
+      <div class="spark-bar g" style="height:33%"></div><div class="spark-bar g" style="height:95%"></div><div class="spark-bar r" style="height:76%"></div><div class="spark-bar g" style="height:38%"></div><div class="spark-bar g" style="height:48%"></div><div class="spark-bar g" style="height:32%"></div><div class="spark-bar r" style="height:44%"></div><div class="spark-bar g" style="height:51%"></div><div class="spark-bar g" style="height:64%"></div><div class="spark-bar r" style="height:53%"></div><div class="spark-bar r" style="height:54%"></div><div class="spark-bar g" style="height:32%"></div>
+    </div>
+    
+    <div style="font-size:10px;color:var(--text-dim);margin-top:4px;text-align:center">12-day price action · 52w range: 31,714.03 – 60,537.36</div>
+    
+    
+    
+  </div>
+  
+</div>
+
+    
+  </div>
+
+  <div class="subsection-label">Commodities</div>
+  <div class="market-grid">
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">WTI CRUDE</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$101.94/bbl</span>
+    
+    <span class="change down">-2.98%</span>
+    
+  </div>
+  <div class="card-note">Prev 105.07</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+7.99%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+1.82%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+75.52%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+72.08%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">BRENT CRUDE</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$108.17/bbl</span>
+    
+    <span class="change down">-5.12%</span>
+    
+  </div>
+  <div class="card-note">Prev 114.01</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+2.70%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+6.93%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+74.64%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+74.10%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">GOLD</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$4,644.50/oz</span>
+    
+    <span class="change up">+0.65%</span>
+    
+  </div>
+  <div class="card-note">Prev 4,614.70</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-1.65%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--red)">-2.90%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+7.38%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+44.69%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">SILVER</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$76.43/oz</span>
+    
+    <span class="change up">+3.94%</span>
+    
+  </div>
+  <div class="card-note">Prev 73.53</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.06%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+0.74%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+9.41%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+137.44%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">NATURAL GAS</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$2.780/MMBtu</span>
+    
+    <span class="change up">+0.47%</span>
+    
+  </div>
+  <div class="card-note">Prev 2.767</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+10.19%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--red)">-1.38%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--red)">-40.69%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--red)">-20.09%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">COPPER</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$5.984/lb</span>
+    
+    <span class="change up">+0.99%</span>
+    
+  </div>
+  <div class="card-note">Prev 5.926</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-0.65%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+6.41%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+9.00%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+30.64%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+  </div>
+
+  <div class="subsection-label">Bonds · FX · Crypto</div>
+  <div class="market-grid">
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">US 10Y YIELD</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">4.38%</span>
+    
+    <span class="change down">-1.2 bps</span>
+    
+  </div>
+  <div class="card-note">Prev 4.39%</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+1.58%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+1.37%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+6.37%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+3.47%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">DOLLAR INDEX</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">98.21</span>
+    
+    <span class="change up">+0.13%</span>
+    
+  </div>
+  <div class="card-note">Prev 98.08</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-0.30%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--red)">-1.45%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+0.17%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--red)">-2.03%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">EUR/USD</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">1.1723</span>
+    
+    <span class="change up">+0.33%</span>
+    
+  </div>
+  <div class="card-note">Prev 1.1685</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.34%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+1.29%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--red)">-0.42%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+3.52%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">GBP/USD</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">1.3576</span>
+    
+    <span class="change down">-0.20%</span>
+    
+  </div>
+  <div class="card-note">Prev 1.3603</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.81%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+2.61%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+0.58%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+2.18%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">USD/JPY</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">157.0330</span>
+    
+    <span class="change down">-1.97%</span>
+    
+  </div>
+  <div class="card-note">Prev 160.1840</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--red)">-1.70%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--red)">-0.97%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--green)">+0.36%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--green)">+9.81%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+    
+<div class="market-card" onclick="this.classList.toggle('open')">
+  <div class="card-top">
+    <div class="card-label">BITCOIN</div>
+    <span class="card-expand-icon">▾</span>
+  </div>
+  <div class="card-row">
+    <span class="price">$78,729</span>
+    
+    <span class="change up">+0.09%</span>
+    
+  </div>
+  <div class="card-note">Prev 78,657.25</div>
+  
+  <div class="card-extended">
+    <div class="perf-grid">
+      <div class="perf-item">
+        <div class="perf-period">1 Week</div>
+        <div class="perf-val" style="color:var(--green)">+0.09%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Month</div>
+        <div class="perf-val" style="color:var(--green)">+17.63%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">YTD</div>
+        <div class="perf-val" style="color:var(--red)">-9.65%</div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-period">1 Year</div>
+        <div class="perf-val" style="color:var(--red)">-17.90%</div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+    
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Market-Moving Headlines</span>
+  </div>
+
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="expand-top">
+      <div class="expand-title">S&P 500 and Nasdaq Close at Record Highs as Apple Earnings Power Tech Rally</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="tags">
+      
+      <span class="tag tag-equities">Equities</span>
+      
+    </div>
+    <div class="expand-body">
+      <p>The <span class='ticker-pill'>SPX</span> advanced 0.29% to close at 7,230.12, while the <span class='ticker-pill'>COMP</span> surged 0.89% to a record 25,114.44 on Friday, capping their strongest month since 2020. The <span class='ticker-pill'>DJI</span> slipped 0.31% to 49,499.27 as value stocks lagged behind the tech-led advance.</p><p><span class='ticker-pill'>AAPL</span> climbed 3% after posting <strong>$111.2 billion in quarterly revenue</strong> — up 17% year-over-year — smashing estimates on 'extraordinary' iPhone 17 demand. Services revenue hit a new all-time high of $31 billion, and Apple guided for 14–17% revenue growth next quarter versus a 9.5% Street consensus. Over 80% of S&P 500 companies that have reported this quarter beat expectations, with the blended earnings growth rate surging to levels not seen since late 2021.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Knock-on Effects</div>
+        <strong>Apple suppliers rally:</strong> Cirrus Logic, Qorvo, and Skyworks stand to benefit from sustained iPhone demand through the June quarter<br><strong>Valuation warning:</strong> Shiller P/E at 41 — the highest since the dot-com era — while Berkshire's Greg Abel continued to be a net seller of stocks with $8.1B in net equity sales in Q1<br><strong>Earnings gauntlet continues:</strong> Palantir, AMD, Disney, Uber, and Airbnb all report this week; Nvidia on May 20 is the next mega-cap catalyst<br><strong>Fed on hold:</strong> The Fed held rates steady at its April 29 meeting — likely Jerome Powell's last — with traders not pricing in a cut until 2027
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  <a href="https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html" target="_blank" rel="noopener noreferrer">CNBC</a>, 
+  <a href="https://www.cnbc.com/2026/04/30/apple-aapl-q2-2026-earnings-report.html" target="_blank" rel="noopener noreferrer">CNBC</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="expand-top">
+      <div class="expand-title">Trump Threatens 25% Tariffs on EU Cars and Trucks, Rattling Automakers</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="tags">
+      
+      <span class="tag tag-macro">Macro</span>
+      
+      <span class="tag tag-equities">Equities</span>
+      
+    </div>
+    <div class="expand-body">
+      <p>President Trump announced Friday that he will raise tariffs on European Union cars and trucks from 15% to <strong>25% next week</strong>, accusing the bloc of failing to comply with the Turnberry Agreement negotiated last July. The White House said the hike would be implemented under <strong>Section 232</strong> national security authority. The EU rejected the accusation and warned it would 'keep options open' to protect European interests.</p><p><span class='ticker-pill'>F</span> fell 2%, <span class='ticker-pill'>STLA</span> slipped 1.7%, and <span class='ticker-pill'>GM</span> dropped 1.5% after the announcement. European automakers <strong>Volkswagen, BMW, and Mercedes-Benz</strong> — which import a large share of vehicles sold in the US from European plants — face the most direct exposure. The tariff escalation comes at a fragile moment, with oil above $100/bbl and annual US inflation at 3.3%.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Knock-on Effects</div>
+        <strong>European equities at risk:</strong> German automakers face heaviest exposure; EURO STOXX 50 flat on the week as tariff fears cap gains<br><strong>Inflation pressure:</strong> Higher auto import costs could add to consumer prices already elevated by the Iran war energy shock<br><strong>Trade deal credibility:</strong> Legal experts note the Turnberry Agreement is now at risk, reducing predictability for transatlantic commerce<br><strong>Midterm politics:</strong> Trump faces pressure from rising inflation ahead of November midterms with just 30% approval on the economy
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  1440, 
+  <a href="https://www.bloomberg.com/news/articles/2026-05-01/trump-says-us-to-raise-tariff-rate-on-eu-cars-trucks-to-25" target="_blank" rel="noopener noreferrer">Bloomberg</a>, 
+  <a href="https://www.cnbc.com/2026/05/01/trump-eu-auto-tariffs.html" target="_blank" rel="noopener noreferrer">CNBC</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="expand-top">
+      <div class="expand-title">War Powers Showdown: Trump Claims Iran Hostilities 'Terminated' as 60-Day Deadline Passes</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="tags">
+      
+      <span class="tag tag-macro">Macro</span>
+      
+      <span class="tag tag-commodities">Commodities</span>
+      
+    </div>
+    <div class="expand-body">
+      <p>The 60-day War Powers Resolution deadline arrived Friday with <strong>no congressional authorization</strong> for continued military action in Iran. In a letter to congressional leaders, Trump declared that hostilities 'have terminated' due to the ceasefire in effect since April 8 — a legally questionable claim that many experts say does not satisfy the statute's requirements.</p><p>Oil prices dropped sharply on Friday as Iran sent an updated peace proposal through Pakistani mediators, with <strong>WTI crude falling 3% to $101.94/bbl</strong> and Brent losing 5.1% to $108.17. Despite the Friday retreat, both benchmarks remain up roughly 75% YTD. The Strait of Hormuz remains effectively closed, and the US naval blockade of Iranian ports continues. A sixth Senate vote to force withdrawal failed Thursday, though Sen. Susan Collins became the <strong>first Republican to break ranks</strong>.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Knock-on Effects</div>
+        <strong>Oil volatility persists:</strong> Brent hit $126.41 intraday Thursday before pulling back; any ceasefire breakdown could send crude surging again<br><strong>Congressional pressure:</strong> Democrats plan rapid-fire war powers votes in both chambers this month; House vote expected as soon as this week<br><strong>Stagflation risk:</strong> Iran war energy shock has driven US inflation to 3.3% while Q1 GDP came in at only 2% — raising recession fears<br><strong>Yen intervention:</strong> USD/JPY fell nearly 2% to 157.03 after reports Tokyo intervened to prop up the yen, which breached 160 earlier in the week
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  1440, 
+  <a href="https://www.cnn.com/2026/05/01/politics/iran-war-60-day-deadline-congress" target="_blank" rel="noopener noreferrer">CNN</a>, 
+  <a href="https://www.pbs.org/newshour/politics/trump-says-deadline-for-congress-to-approve-iran-war-doesnt-apply-claiming-hostilities-have-terminated" target="_blank" rel="noopener noreferrer">PBS</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="expand-top">
+      <div class="expand-title">Pentagon Inks AI Deals With Eight Tech Giants for Classified Military Networks</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="tags">
+      
+      <span class="tag tag-equities">Equities</span>
+      
+      <span class="tag tag-macro">Macro</span>
+      
+    </div>
+    <div class="expand-body">
+      <p>The Department of Defense announced agreements with <span class='ticker-pill'>GOOGL</span>, <span class='ticker-pill'>NVDA</span>, <span class='ticker-pill'>MSFT</span>, <span class='ticker-pill'>AMZN</span>, <span class='ticker-pill'>ORCL</span>, OpenAI, SpaceX, and startup Reflection AI to deploy AI systems on classified networks at <strong>Impact Level 6 and 7</strong> — the Pentagon's highest security tiers. The deals are part of a push to make the US military an 'AI-first fighting force,' with over 1.3 million DOD personnel already using the GenAI.mil platform.</p><p><strong>Anthropic was notably excluded</strong> after the Pentagon designated it a 'supply chain risk' following its refusal to allow unrestricted military use of its Claude models. Defense Secretary Pete Hegseth called Anthropic CEO Dario Amodei an 'ideological lunatic' during a Senate hearing Thursday. Anthropic has challenged the designation in court and won a preliminary injunction.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Knock-on Effects</div>
+        <strong>Revenue tailwind:</strong> Classified AI contracts could become a meaningful revenue stream for cloud providers MSFT, AMZN, and GOOGL<br><strong>Open-source push:</strong> Nvidia's Nemotron models and Reflection AI signal the Pentagon's interest in inspectable, modifiable open-source AI<br><strong>Anthropic isolated:</strong> The dispute creates regulatory risk for companies that resist unrestricted government use of their AI technology<br><strong>Employee backlash:</strong> Hundreds of Google employees sent a letter urging leadership to refuse classified AI deployments
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  1440, 
+  <a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer">TechCrunch</a>, 
+  <a href="https://www.washingtonpost.com/technology/2026/05/01/pentagon-ai-deals-microsoft-amazon-google-classified-military/" target="_blank" rel="noopener noreferrer">Washington Post</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="expand-top">
+      <div class="expand-title">Berkshire's Abel Era Begins: $397B Cash Pile, 18% Earnings Jump, No Break-Up Plans</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="tags">
+      
+      <span class="tag tag-equities">Equities</span>
+      
+      <span class="tag tag-finance">Finance</span>
+      
+    </div>
+    <div class="expand-body">
+      <p><span class='ticker-pill'>BRK.B</span> held its first annual meeting with Greg Abel as CEO on Saturday in Omaha. The conglomerate reported Q1 operating earnings up <strong>18% year-over-year</strong>, driven by a 28.5% surge in insurance underwriting profits. Cash and Treasuries swelled to a record <strong>$397.4 billion</strong>. Abel ruled out breaking up the conglomerate and stressed continuity with Warren Buffett's legacy.</p><p>Buffett, now 95 and serving as chairman, made remarks from the audience but was no longer the central figure on stage. Abel opened the Q&A with a deepfake Buffett — a stunt he used to warn shareholders about AI risks. Berkshire has been a <strong>net seller of $194.8 billion in stocks</strong> over the past 14 quarters, a signal Abel acknowledged reflects historically stretched valuations.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Knock-on Effects</div>
+        <strong>Dry powder:</strong> Nearly $400B in cash gives Abel enormous optionality for acquisitions or deployments if markets correct<br><strong>Net selling signal:</strong> 14 consecutive quarters of net stock sales underscores Berkshire's caution on current valuations (Shiller P/E at 41)<br><strong>CEO transitions:</strong> Apple's Tim Cook (stepping down Sept 1) and Coca-Cola's James Quincey also recently departed — reshaping Berkshire's top holdings<br><strong>Stock lag:</strong> BRK.B is down ~6% YTD vs the S&P 500's +4.7%, testing the Abel premium
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  <a href="https://www.cnbc.com/2026/05/02/warren-buffett-berkshire-hathaway-annual-meeting-2026-live-updates.html" target="_blank" rel="noopener noreferrer">CNBC</a>, 
+  <a href="https://www.cnbc.com/2026/05/03/berkshire-annual-meeting-greg-abel-rules-out-break-up-stressing-continuity-with-buffett.html" target="_blank" rel="noopener noreferrer">CNBC</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">News Roundup — Sector Highlights</span>
+  </div>
+
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-ai">AI / Technology</div>
+    <div class="expand-top">
+      <div class="expand-title">UiPath CMO: 70–80% of Agentic AI Pilots Fail — Coordination Is the Missing Link</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p><span class='ticker-pill'>PATH</span> CMO Michael Atalla, in an exclusive interview with The Rundown AI, said the vast majority of enterprise AI projects never make it past the pilot stage because organizations treat AI agents as <strong>isolated tools rather than components of a governed workflow</strong>. UiPath, marking its five-year IPO anniversary, has pivoted from robotic process automation to 'agentic business orchestration.'</p><p>Atalla, a 15-year Microsoft Office veteran, drew parallels to the cloud transition: 'Enterprises don't care about theory. They care whether it works reliably under real conditions.' Nearly half of organizations now call AI a 'massive disappointment' despite heavy investment, he said, pointing to a <strong>coordination gap</strong> where costs accumulate and ROI disappears.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>Enterprise AI spending is accelerating — Meta plans $125–145B in AI capex this year alone — but the failure rate of pilots exposes a growing gap between investment and returns. Companies that fail to redesign workflows before deploying AI risk joining the majority that never see ROI. For investors, the software orchestration layer (UiPath, ServiceNow, Palantir) may prove more durable than the model layer.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  The Rundown AI
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-politics">Politics</div>
+    <div class="expand-top">
+      <div class="expand-title">Academy Awards Set AI Rules: Only Humans Eligible for Acting, Screenplay Oscars</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p>The Academy of Motion Picture Arts and Sciences released new rules for the <strong>2027 Academy Awards</strong> requiring humans to be at the center of creative processes. Only performances by humans will be considered for acting awards, and only human-authored scripts can receive screenplay nominations. The rules also expand eligibility for international films as the Academy's membership becomes more globally diverse.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>The Oscars' new AI guardrails set a cultural marker for the broader debate over AI's role in creative industries. With Hollywood unions having already negotiated AI protections in 2023 strike deals, these rules could influence how other industries — from journalism to music — draw lines around human vs. machine output.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  1440
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-energy">Energy</div>
+    <div class="expand-top">
+      <div class="expand-title">Oil Drops on Iran Peace Proposal but Remains Above $100 as Strait of Hormuz Stays Closed</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p>WTI crude fell 3% to <strong>$101.94/bbl</strong> and Brent dropped 5.1% to $108.17 on Friday after Iran sent an updated peace proposal through Pakistani mediators. Despite the decline, both benchmarks are up roughly 75% year-to-date. The Strait of Hormuz — through which ~20% of global oil passes — remains effectively closed, with only a handful of daily vessel transits.</p><p>Spirit Airlines <strong>ceased all operations</strong> this week, citing unsustainable fuel costs — a casualty of the energy crisis triggered by the Iran conflict. US gasoline prices have climbed above $4/gallon nationally.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>Energy prices remain the key transmission mechanism between the Iran war and the broader economy. Every dollar rise in crude adds ~0.8% to global inflation. Until the Strait of Hormuz reopens — the central demand from both sides — the risk of further oil spikes remains elevated, threatening consumer spending and corporate margins heading into Q2 earnings.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  <a href="https://www.cnbc.com/2026/05/01/oil-prices-today-brent-wti-us-iran-war-trump-war-powers-deadline.html" target="_blank" rel="noopener noreferrer">CNBC</a>, 
+  Reuters
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-pharma">Pharma</div>
+    <div class="expand-top">
+      <div class="expand-title">Pfizer's Elrexfio Hits Phase 3 Goal in Blood Cancer; FDA Fast-Tracks Psychedelic Therapies</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p><span class='ticker-pill'>PFE</span> announced that Elrexfio met its primary endpoint in the Phase 3 MagnetisMM-5 trial, showing a <strong>statistically significant improvement in progression-free survival</strong> versus standard of care in multiple myeloma patients after at least one prior treatment line. Separately, Pfizer extended Vyndamax patent protection through June 2031.</p><p>The FDA also issued <strong>national priority vouchers</strong> for psilocybin (depression) and methylone (PTSD) and cleared the first US clinical trial of noribogaine for alcohol use disorder — following a Trump executive order to accelerate psychedelic drug research. Companies awarded vouchers include <strong>Compass Pathways, Usona Institute, and Transcend Therapeutics</strong>.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>Pfizer's Elrexfio win strengthens its oncology pipeline and could drive expanded approvals in earlier-line multiple myeloma. Meanwhile, the FDA's psychedelic push marks a seismic policy shift — Compass Pathways could see COMP360 reviewed in 1–2 months rather than the typical 10–12, potentially reaching patients by late 2026.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  Morning Brew, 
+  <a href="https://www.yahoo.com/news/articles/pfizers-blood-cancer-drug-meets-114204796.html" target="_blank" rel="noopener noreferrer">Reuters</a>, 
+  <a href="https://www.cnbc.com/2026/04/24/fda-psychedelic-drug-research-trump.html" target="_blank" rel="noopener noreferrer">CNBC</a>
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-finance">Finance</div>
+    <div class="expand-top">
+      <div class="expand-title">Meta Lawsuits, Social Media Crackdown Signal Regulatory Headwinds for Big Tech Ads</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p>A California jury ordered <span class='ticker-pill'>META</span> and <span class='ticker-pill'>GOOGL</span> to pay <strong>$6 million in damages</strong> to a woman who suffered depression and anxiety from using their platforms as a teen — finding the platforms were intentionally designed to hook young users. New Mexico also won a <strong>$375 million fine</strong> against Meta for misleading users about child safety risks. Phones are now banned in schools in 27 US states.</p><p>The verdicts come as tech companies face pressure from social media bans for under-16s (Australia, with Austria and Denmark following) and an estimated <strong>$11 billion</strong> in annual ad revenue targeting minors is at risk. Meta trades near $608–$612 after a post-earnings selloff driven by its $125–145B AI spending plan.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>Legal precedents from these cases could trigger a cascade of lawsuits targeting Big Tech's ad-targeting practices. Combined with global age-based bans, the youth demographic that tech platforms depend on for long-term user growth faces structural regulatory headwinds — a risk currently underpriced relative to Meta's and Alphabet's AI-driven revenue momentum.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  Morning Brew
+  
+</div>
+
+
+    </div>
+  </div>
+  
+  <div class="expand-card" onclick="this.classList.toggle('open')">
+    <div class="sector-badge sb-innovation">Innovation</div>
+    <div class="expand-top">
+      <div class="expand-title">Mexico City Sinking Nearly 10 Inches Per Year; NASA Satellite Data Shows Dramatic Subsidence</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p>NASA satellite imagery confirms that Mexico City is sinking by <strong>nearly 10 inches every year</strong>, a shift so dramatic it's visible from space. The city — home to roughly 22 million people — has subsided more than 39 feet in less than a century. The subsidence is caused by decades of intensive groundwater pumping to supply the metropolis, which was built on an ancient lake bed.</p><p>The iconic Basilica of Our Lady of Guadalupe is among the structures visibly affected. The data underscores the accelerating infrastructure risks from urban water management in climate-vulnerable cities worldwide.</p>
+      
+      <div class="consequence">
+        <div class="consequence-label">Why It Matters</div>
+        <p>Mexico City's subsidence is a global warning on urban water infrastructure risk. With groundwater depletion accelerating in cities from Jakarta to Chennai, the intersection of climate adaptation and infrastructure investment represents a growing opportunity for construction, water tech, and infrastructure-focused ESG strategies.</p>
+      </div>
+      
+      
+
+<div class="card-source">
+  Source:
+  1440
+  
+</div>
+
+
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Economic Calendar</span>
+  </div>
+
+  <div class="subsection-label">Today — Sunday May 3</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">—</div>
+  <div>
+    <div class="cal-event-name">🟡 No major US economic releases</div>
+    <div class="cal-event-detail">Markets closed; weekend digest day</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">All Day</div>
+  <div>
+    <div class="cal-event-name">🟡 Berkshire Hathaway Annual Meeting Wrap</div>
+    <div class="cal-event-detail">Greg Abel's first annual meeting as CEO concluded Saturday</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">All Day</div>
+  <div>
+    <div class="cal-event-name">🟡 Iran Peace Talks Monitored</div>
+    <div class="cal-event-detail">Iran's updated proposal to Pakistani mediators under review</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+
+  
+  <div class="subsection-label">Tomorrow — Monday May 4</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 Durable Goods Orders final (March)</div>
+    <div class="cal-event-detail">Final revision of March durable goods</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">Est: —</div>
+    <div class="cal-previous">Prev: +0.9% (prelim)</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 Factory Orders (March)</div>
+    <div class="cal-event-detail">Monthly factory orders data</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">Est: +0.5%</div>
+    <div class="cal-previous">Prev: +0.6%</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">After Close</div>
+  <div>
+    <div class="cal-event-name">🔴 Palantir Technologies (PLTR) Earnings</div>
+    <div class="cal-event-detail">Key AI/defense name; Pentagon deals could boost sentiment</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">Various</div>
+  <div>
+    <div class="cal-event-name">🟡 Earnings: Diamondback Energy, Vertex Pharma, Tyson Foods, ON Semi</div>
+    <div class="cal-event-detail">Energy, pharma, and chip names report</div>
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Week Ahead — May 3–9</span>
+  </div>
+
+  
+  <div class="week-day-header">MON MAY 5</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">9:45 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 S&P Global Services PMI final (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 ISM Services PMI (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">Est: 51.2</div>
+    <div class="cal-previous">Prev: 50.8</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 JOLTS Job Openings (Mar)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">Est: 7.5M</div>
+    <div class="cal-previous">Prev: 7.57M</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 New Home Sales (Mar)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">After Close</div>
+  <div>
+    <div class="cal-event-name">🔴 AMD, Arista Networks, Super Micro Earnings</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">CRITICAL</div>
+    
+  </div>
+</div>
+
+  
+  
+  <div class="week-day-header">WED MAY 7</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:15 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 ADP Employment Survey (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    <div class="cal-previous">Prev: 155K</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">Pre-Mkt</div>
+  <div>
+    <div class="cal-event-name">🔴 Walt Disney (DIS), Uber (UBER) Earnings</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">CRITICAL</div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">After Close</div>
+  <div>
+    <div class="cal-event-name">🔴 AppLovin, DoorDash, Fortinet Earnings</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+  <div class="week-day-header">THU MAY 8</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:30 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 Initial Claims (05/02)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    <div class="cal-previous">Prev: 241K</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:30 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 Q1 Productivity & Unit Labor Costs (prelim)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">After Close</div>
+  <div>
+    <div class="cal-event-name">🔴 Airbnb, Coinbase, Block, McDonald's Earnings</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">CRITICAL</div>
+    
+  </div>
+</div>
+
+  
+  
+  <div class="week-day-header">FRI MAY 9</div>
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:30 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 Nonfarm Payrolls (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus">CRITICAL</div>
+    <div class="cal-previous">Prev: +228K</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:30 AM</div>
+  <div>
+    <div class="cal-event-name">🔴 Unemployment Rate (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    <div class="cal-previous">Prev: 4.2%</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">8:30 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 Average Hourly Earnings (Apr)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    <div class="cal-previous">Prev: +0.3% m/m</div>
+  </div>
+</div>
+
+  
+  
+<div class="cal-item">
+  <div class="cal-time">10:00 AM</div>
+  <div>
+    <div class="cal-event-name">🟡 UMich Consumer Sentiment prelim (May)</div>
+    
+  </div>
+  <div class="cal-data">
+    <div class="cal-consensus"></div>
+    
+  </div>
+</div>
+
+  
+  
+
+  
+  <div class="week-day-header">KEY THEME</div>
+  <div class="expand-card" onclick="this.classList.toggle('open')" style="border-left:3px solid var(--accent2)">
+    <div class="expand-top">
+      <div class="expand-title">Jobs Data & Earnings Gauntlet Will Test Record Highs</div>
+      <span class="expand-arrow">›</span>
+    </div>
+    <div class="expand-body">
+      <p>The S&P 500 and Nasdaq enter May at record levels, but the week ahead presents a dense gauntlet of tests. <strong>Friday's April nonfarm payrolls report</strong> is the week's marquee event, arriving as markets recalibrate for a Fed that's now expected to hold rates into 2027. With oil above $100, inflation at 3.3%, and Q1 GDP at a modest 2%, any softness in jobs data could reignite stagflation fears.</p><p>Earnings season continues with <strong>over 1,600 reports</strong> this week. Key names include Palantir (Monday), AMD and Arista Networks (Tuesday), Disney and Uber (Wednesday), and Airbnb and Coinbase (Thursday). AI-exposed names will be closely watched after Apple's strong results and Meta's capex-driven selloff set contrasting narratives for the sector.</p><p>The geopolitical backdrop remains volatile: Trump's 25% EU auto tariff is set to take effect, Iran peace talks continue through Pakistani mediators, and Democrats plan to force more war powers votes with Congress returning from recess. The interplay between energy prices, trade policy, and monetary inaction creates a fragile equilibrium that any single catalyst could upset.</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title">One Thing to Watch</span>
+  </div>
+  <div class="watch-card">
+    <div class="watch-title">Friday's Payrolls: Can the Labor Market Hold Up Under $100 Oil?</div>
+    <div class="watch-text">April nonfarm payrolls, due Friday at 8:30 AM ET, will be the most important data point of the week. With oil above $100, inflation running at 3.3%, and the Fed now expected to remain on hold through 2027, the labor market is the last pillar supporting the bull case. A strong print could validate record equity levels; a weak one would amplify stagflation fears and test whether markets can look past the Iran war's economic toll. Watch the unemployment rate (prev: 4.2%) and average hourly earnings for early signs of margin pressure on corporate America.</div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-title">Follow-Up Questions</span>
+  </div>
+  
+  <div class="question-card">
+    <div class="q-num">1</div>
+    <div class="q-text">How would a breakdown in Iran ceasefire talks and renewed Strait of Hormuz disruptions affect the S&P 500's record run?</div>
+  </div>
+  
+  <div class="question-card">
+    <div class="q-num">2</div>
+    <div class="q-text">With the Shiller P/E at 41 and Berkshire sitting on $397B in cash, is the market pricing in too much optimism?</div>
+  </div>
+  
+  <div class="question-card">
+    <div class="q-num">3</div>
+    <div class="q-text">Could Trump's 25% EU auto tariffs trigger retaliatory measures that would hurt US exporters?</div>
+  </div>
+  
+  <div class="question-card">
+    <div class="q-num">4</div>
+    <div class="q-text">Which AI earnings this week — Palantir, AMD, or AppLovin — could be the next catalyst for the tech rally?</div>
+  </div>
+  
+</div>
+
+
+<div class="source-row">
+  
+  
+  
+  <a class="source-badge" href="https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--accent)"></div>
+    CNBC
+  </a>
+  
+  
+  
+  
+  <div class="source-badge">
+    <div class="source-dot" style="background:var(--accent2)"></div>
+    1440
+  </div>
+  
+  
+  
+  
+  <a class="source-badge" href="https://www.bloomberg.com/news/articles/2026-05-01/trump-says-us-to-raise-tariff-rate-on-eu-cars-trucks-to-25" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--orange)"></div>
+    Bloomberg
+  </a>
+  
+  
+  
+  
+  <a class="source-badge" href="https://www.cnn.com/2026/05/01/politics/iran-war-60-day-deadline-congress" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--gold)"></div>
+    CNN
+  </a>
+  
+  
+  
+  
+  <a class="source-badge" href="https://www.pbs.org/newshour/politics/trump-says-deadline-for-congress-to-approve-iran-war-doesnt-apply-claiming-hostilities-have-terminated" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--purple)"></div>
+    PBS
+  </a>
+  
+  
+  
+  
+  <a class="source-badge" href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--green)"></div>
+    TechCrunch
+  </a>
+  
+  
+  
+  
+  <a class="source-badge" href="https://www.washingtonpost.com/technology/2026/05/01/pentagon-ai-deals-microsoft-amazon-google-classified-military/" target="_blank" rel="noopener noreferrer">
+    <div class="source-dot" style="background:var(--red)"></div>
+    Washington Post
+  </a>
+  
+  
+  
+  
+  <div class="source-badge">
+    <div class="source-dot" style="background:var(--accent)"></div>
+    The Rundown AI
+  </div>
+  
+  
+  
+  
+  <div class="source-badge">
+    <div class="source-dot" style="background:var(--accent2)"></div>
+    Reuters
+  </div>
+  
+  
+  
+  
+  <div class="source-badge">
+    <div class="source-dot" style="background:var(--orange)"></div>
+    Morning Brew
+  </div>
+  
+  
+</div>
+<div class="footer">Market Brief · Auto-generated · Data as of May 3 2026</div>
+
+</div>
+</body>
+</html>
